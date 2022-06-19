@@ -1,4 +1,10 @@
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#login-modal">Acceder</button>
+<a routerLink="login" routerLinkActive="active" *ngIf="!authService.logIn" class="btn btn-primary">Acceder</a>
+<a onclick="logout()" class="btn btn-primary" *ngIf="authService.logIn">Salir</a>
+
+<!--
+    <button type="button" routerLink="login" routerLinkActive="active" *ngIf="!authService.logIn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#login-modal">Acceder</button>
+    <button type="button" onclick="logout()" class="btn btn-primary" *ngIf="authService.logIn" data-bs-toggle="modal" data-bs-target="#login-modal">Salir</button>
+-->
 
 <!-- Modal -->
 <div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true" style="z-index: 9999;">
@@ -34,26 +40,3 @@
         </div>
     <!-- </form> -->
 </div>
-
-<script type="javascript">
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-    (function () {
-    'use strict'
-
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.querySelectorAll('.needs-validation')
-
-    // Loop over them and prevent submission
-    Array.prototype.slice.call(forms)
-        .forEach(function (form) {
-        form.addEventListener('submit', function (event) {
-            if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-            }
-
-            form.classList.add('was-validated')
-        }, false)
-        })
-    })()
-</script>
